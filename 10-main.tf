@@ -23,7 +23,7 @@ locals {
   rg_name                 = "${local.prefix}-rg"
   vnet_name               = "${local.prefix}-vnet"
   subdomain               = var.subdomain == null ? local.workspace_name : jsondecode(var.subdomain)
-  tags                    = merge(local.common_tags, jsondecode(var.tags))
+  tags                    = merge(local.common_tags, var.tags)
 }
 
 
@@ -81,7 +81,7 @@ module "vnet" {
   resource_group_name     = module.resource_group.name
   location                = module.resource_group.location
   address_space           = jsondecode(var.vnet_address_space)
-  create_ddos_plan        = null
+  create_ddos_plan        = false
   ddos_protection_plan_id = null
   subnets = [
     {
