@@ -81,7 +81,7 @@ module "vnet" {
   resource_group_name     = module.resource_group.name
   location                = module.resource_group.location
   address_space           = jsondecode(var.vnet_address_space)
-  create_ddos_plan        = jsondecode(var.create_ddos_plan)
+  create_ddos_plan        = null
   ddos_protection_plan_id = null
   subnets = [
     {
