@@ -23,7 +23,7 @@ locals {
   rg_name                 = "${local.prefix}-rg"
   vnet_name               = "${local.prefix}-vnet"
   subdomain               = var.subdomain == null ? local.workspace_name : jsondecode(var.subdomain)
-  tags                    = merge(local.common_tags, var.tags)
+  tags                    = merge(local.common_tags, jsondecode(var.tags))
 }
 
 
