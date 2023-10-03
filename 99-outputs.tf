@@ -45,9 +45,6 @@ output "vnet_id" {
   value = module.vnet.vnet_id
 }
 
-output "vnet_subnets" {
-  value = merge(module.vnet.vnet_subnets, { "AzureBastionSubnet" = azurerm_subnet.bastion.id })
-}
 
 output "vnet_address_space" {
   value       = module.subnet_addrs.base_cidr_block
