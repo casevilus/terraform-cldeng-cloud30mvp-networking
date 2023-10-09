@@ -6,3 +6,5 @@ This Plan creates an required Networking resources (VNet)
 
 ## Outputs
 
+
+
