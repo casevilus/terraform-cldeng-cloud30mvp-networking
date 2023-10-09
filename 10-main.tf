@@ -98,7 +98,7 @@ module "vnet" {
 
 module "pip" {
   source  = "app.terraform.io/CADENCE_TEST/public-ip/azurerm"
-  version = "0.0.1"
+  version = "0.0.2"
 
   name                = local.pip_name
   location            = module.resource_group.location
