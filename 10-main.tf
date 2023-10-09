@@ -103,7 +103,7 @@ module "pip" {
   name                = local.pip_name
   location            = module.resource_group.location
   resource_group_name = module.resource_group.name
-  allocation_method   = "Static"
+  allocation_method   = "Dynamic"
   sku                 = "Standard"
   tags                = local.tags
 }
