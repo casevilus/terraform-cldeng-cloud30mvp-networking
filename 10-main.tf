@@ -22,6 +22,7 @@ locals {
 
   rg_name                 = "${local.prefix}-rg"
   vnet_name               = "${local.prefix}-vnet"
+  pip_name                = "${local.prefix}-pio"
   subdomain               = var.subdomain == null ? local.workspace_name : jsondecode(var.subdomain)
   tags                    = merge(local.common_tags, jsondecode(var.tags))
 }
@@ -94,3 +95,15 @@ module "vnet" {
   tags = local.tags
 }
 
+
+module "pip" {
+  source  = "app.terraform.io/CADENCE_TEST/public-ip/azurerm"
+  version = "0.0.2"
+
+  name                = local.pip_name
+  location            = module.resource_group.location
+  resource_group_name = module.resource_group.name
+  allocation_method   = "Static"
+  sku                 = "Standard"
+  tags                = local.tags
+}
