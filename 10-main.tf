@@ -95,15 +95,3 @@ module "vnet" {
   tags = local.tags
 }
 
-
-module "pip" {
-  source  = "app.terraform.io/CADENCE_TEST/public-ip/azurerm"
-  version = "0.0.2"
-
-  name                = local.pip_name
-  location            = module.resource_group.location
-  resource_group_name = module.resource_group.name
-  allocation_method   = "Dynamic"
-  sku                 = "Standard"
-  tags                = local.tags
-}
